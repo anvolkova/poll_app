@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title PollApp
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header.navbar.navbar-fixed-top.navbar-inverse
+      .container
+        = link_to "sample app", '#', id: "logo"
+        %nav
+          %ul.nav.navbar-nav.navbar-left
+            %li= link_to "Home",   root_path
+            %li= link_to "Team Names",   team_names_path
+            %li= link_to "Create Name",   new_team_name_path
+        %nav
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "About",   about_path
+            %li= link_to "Log in", '#'
+            %li= link_to "Sign up", '#'
+    .container
+      = yield
