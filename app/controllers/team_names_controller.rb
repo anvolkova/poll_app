@@ -1,5 +1,7 @@
 class TeamNamesController < ApplicationController
 
+  before_action :authenticate_user!
+  #user_signed_in?
   def new
     @team_name = TeamName.new
   end
