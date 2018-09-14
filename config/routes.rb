@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get  '/about', to: 'static_pages#about'
 
-  resources :team_names
-
+  authenticate :user do
+    resources :team_names
+  end
 end
