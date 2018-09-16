@@ -1,0 +1,7 @@
+%h1 Your names
+%table
+  %tbody
+  - @names.each do |team|
+    %tr
+      %td= team.name
+      %td= link_to 'Delete', team_name_path(team), method: :delete, data: { confirm: "You sure?" }

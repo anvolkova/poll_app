@@ -1,18 +1,22 @@
 class TeamNamesController < ApplicationController
 
   before_action :authenticate_user!
-  #user_signed_in?
+
   def new
-    @team_name = TeamName.new
+    @team_name = current_user.team_names.new
   end
 
   def create
-    @team_name = TeamName.create(team_name_params)
-    redirect_to team_names_path
+    @team_name = current_user.team_names.create(team_name_params)
+    if @team_name.save
+      redirect_to team_names_path
+    else
+      render 'new'
+    end
   end
 
   def index
-    @team_names = TeamName.all
+    @team_names = TeamName.all.order(created_at: :desc).limit(20)
   end
 
   def show

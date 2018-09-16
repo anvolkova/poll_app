@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'users/names'
   devise_for :users, :controllers => { registrations: 'users/registrations', passwords: 'users/passwords' }
 
   root 'static_pages#home'
@@ -7,5 +8,7 @@ Rails.application.routes.draw do
 
   authenticate :user do
     resources :team_names
+    get 'names', to: 'users#names'
+    resources :votes, only: [:create]
   end
 end

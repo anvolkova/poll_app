@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_14_015030) do
+ActiveRecord::Schema.define(version: 2018_09_16_113306) do
 
   create_table "team_names", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2018_09_14_015030) do
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.string "type"
+    t.integer "user_id"
+    t.integer "team_name_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_name_id"], name: "index_votes_on_team_name_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
 end
