@@ -1,7 +1,8 @@
 %h2 Our choice of names
 
-%table.table.table-bordered
+%table.table
   %tbody
   - @team_names.each do |team|
     %tr
-      %td= link_to team.name, team_name_path(team)
+      %td= team.name
+      %td= render 'votes/vote_button', team_name: team
