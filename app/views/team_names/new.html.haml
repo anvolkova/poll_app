@@ -1,8 +1,7 @@
-%h2 New team name
-%p share a team name
+%h2 Please, suggest a new team name
 
-= form_for(@team_name) do |form|
+= form_for(@team_name, html: { class: 'form-group form-signin' }) do |form|
   = form.label :name
-  = form.text_field :name, placeholder: 'Team name', autofocus: true
+  = form.text_field :name, placeholder: 'Team name', autofocus: true, class: 'form-control'
 
-  = form.submit 'Submit name'
+  = form.submit 'Submit name', class: 'btn btn-block btn-primary'

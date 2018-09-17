@@ -9,14 +9,58 @@ section {
   overflow: auto;
 }
 
-textarea {
-  resize: vertical;
+.navbar {
+    margin: 0px;
+    border-radius: 0;
+    background-color: #000080;
 }
 
-.center {
+.navbar-inverse .navbar-nav li a{
+  color: #E6E6FA;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+a {
+    color: #000080;
+}
+h2 {
   text-align: center;
+  color: #000080;
+  padding-bottom: 15px;
+}
+td {
+  color: #000080;
+  font-size: 1.8rem;
 }
 
-.center h2 {
-  margin-bottom: 10px;
+.text_center {
+  text-align: center;
+
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    color: #000080;
+}
+.form-control{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.btn-primary:hover{
+    background-color: #4d4dff;
+    border-color: #4d4dff;
+}
+.btn-primary{
+    background-color: #0000CD;
+    border-color: #0000CD;
+}
+
+.full-width {
+    width: 100%;
 }

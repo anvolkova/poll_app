@@ -1,5 +1,7 @@
-%h1 Team Names
-%ul
+%h2 Our choice of names
+
+%table.table.table-bordered
+  %tbody
   - @team_names.each do |team|
-    %li
-      = link_to team.name, team_name_path(team)
+    %tr
+      %td= link_to team.name, team_name_path(team)
