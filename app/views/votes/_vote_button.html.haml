@@ -1,1 +1,1 @@
-= button_to "Vote", votes_path(team_name_id: team_name.id), class: 'btn btn-primary'
+= button_to "Vote", votes_path(team_name_id: team_name.id), :disabled => already_voted?(team_name), class: 'btn btn-primary'

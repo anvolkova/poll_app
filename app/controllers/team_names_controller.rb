@@ -16,7 +16,7 @@ class TeamNamesController < ApplicationController
   end
 
   def index
-    @team_names = TeamName.all.order(created_at: :desc).limit(20)
+    @team_names = TeamName.all.most_voted
   end
 
   def show

@@ -6,3 +6,5 @@
     %tr
       %td= team.name
       %td= render 'votes/vote_button', team_name: team
+      %td{data: { label: 'Votes' } }
+        %span= team.votes.count

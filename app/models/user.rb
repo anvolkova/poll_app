@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # /\A[a-z\d\-.]+@[a-z\d\-]+\.[a-z]+\z/i
 
   has_many :team_names, dependent: :destroy
-  has_many :votes
+  has_many :votes, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
