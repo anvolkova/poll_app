@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2018_09_17_103823) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "team_names", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "votes_count", default: 0, null: false
@@ -37,17 +40,19 @@ ActiveRecord::Schema.define(version: 2018_09_17_103823) do
     t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index [nil], name: "index_users_on_confirmation_token", unique: true
   end
 
   create_table "votes", force: :cascade do |t|
     t.string "type"
-    t.integer "user_id"
-    t.integer "team_name_id"
+    t.bigint "user_id"
+    t.bigint "team_name_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_name_id"], name: "index_votes_on_team_name_id"
     t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
+  add_foreign_key "team_names", "users"
+  add_foreign_key "votes", "team_names"
+  add_foreign_key "votes", "users"
 end
