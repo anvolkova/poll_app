@@ -19,10 +19,6 @@ class TeamNamesController < ApplicationController
     @team_names = TeamName.all.most_voted
   end
 
-  def show
-    @team_name = TeamName.find(params[:id])
-  end
-
   def destroy
     TeamName.find(params[:id]).destroy
     flash[:success] = "Team name deleted"
